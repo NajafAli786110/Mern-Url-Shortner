@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #84fab0, #8fd3f4);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #4caf50;
+        }
+
+        header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="url"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="url"]:focus {
+            border-color: #4caf50;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4caf50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .result {
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .result a {
+            color: #00000060;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 10px;
+        }
+
+        .result a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>URL Shortener</h1>
+            <p>Enter a URL to generate a shorter link</p>
+        </header>
+        <form id="url-form" method="post" action="/url">
+            <input type="url" id="redirectURL" name="redirectURL" placeholder="Enter your URL here..." required>
+            <button type="submit">Shorten URL</button>
+        </form>
+        <% if (locals.id) { %>
+            <div class="result">
+                <a href="http://localhost:8000/url/<%= id %>" target="_blank">Shortened URL: http://localhost:8000/url/<%= id %></a>
+            </div>
+            <% } %>
+    </div>
+</body>
+
+</html>

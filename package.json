@@ -1,0 +1,22 @@
+{
+  "name": "url-shortner",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Najaf Balti",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.1",
+    "nanoid": "^5.0.8",
+    "nodemon": "^3.1.7",
+    "uuid": "^11.0.3"
+  }
+}
